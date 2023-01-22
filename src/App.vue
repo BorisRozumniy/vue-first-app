@@ -1,9 +1,10 @@
 <template>
   <!-- <Todos /> -->
   <TodosCoockbook />
-  <Checkbox>label</Checkbox>
-  <Button>ff</Button>
-  <Input />
+  <!-- <Checkbox>label 1</Checkbox> -->
+  <!-- <Checkbox>label 2</Checkbox> -->
+  <!-- <Button>ff</Button> -->
+  <!-- <Input /> -->
   <!-- <Header /> -->
   <!-- <Likes /> -->
   <!-- <Posts /> -->

@@ -2,13 +2,14 @@
   <div>
     <div class="container tasker">
       <strong>My task is:</strong>
-      <input
+      <Input
         type="text"
         :value="task"
         @input="task = $event.target.value"
         class="taskInput"
+        v-on:keyup.enter="addTask"
       />
-      <button v-on:click="addTask">Add Task</button>
+      <Button v-on:click="addTask">Add Task</Button>
     </div>
   </div>
 </template>

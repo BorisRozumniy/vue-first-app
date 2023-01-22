@@ -10,7 +10,6 @@ export default {
   },
   methods: {
     updateInput(event) {
-      console.log("update:modelValue", event);
       this.$emit("update:modelValue", event.target.value);
     },
   },
