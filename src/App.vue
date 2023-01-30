@@ -1,6 +1,8 @@
 <template>
+  <!-- <AccountForm /> -->
+  <AuthForm />
   <!-- <Todos /> -->
-  <TodosCoockbook />
+  <!-- <TodosCoockbook /> -->
   <!-- <Checkbox>label 1</Checkbox> -->
   <!-- <Checkbox>label 2</Checkbox> -->
   <!-- <Button>ff</Button> -->
@@ -16,6 +18,7 @@ import Likes from "./components/Likes.vue";
 import Posts from "./components/Posts.vue";
 import Todos from "./components/Todos.vue";
 import TodosCoockbook from "./components/CoockbookApp.vue";
+import AuthForm from "./components/Coockbook/AuthForm.vue";
 
 export default {
   components: {
@@ -24,6 +27,7 @@ export default {
     Posts,
     Todos,
     TodosCoockbook,
+    AuthForm,
   },
 };
 </script>

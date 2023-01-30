@@ -1,14 +1,18 @@
 <template>
-	<form @submit.prevent="onSubmit">
-		<label :class="v$.name.$error && 'field-error'">
-			Name
-			<input v-model="name" @blur="v$.name.$touch">
-			<div v-if="v$.name.$error">Name field has an error.</div>
+	<form @submit.prevent="onSubmit" :class="isError && 'error'">
+		<label class="field" :class="v$.name.$error && 'field-error'">
+			<span>Name</span>
+			<Input v-model="name" @blur="v$.name.$touch" />
+			<!-- <Input v-model="name" @blur="v$.name.$touch" :error="v$.name.$error" :dirty="v$.name.$dirty" /> -->
+			<ShowError :validation="v$.name" :error="v$.name.$error" :errors="v$.name.$errors" />
 		</label>
 
-		<label for="email" :class="v$.name.$error && 'field-error'">Email</label>
-		<input v-model="email" id="email">
-		<div v-if="v$.email.$error">Email field has an error.</div>
+		<label class="field" :class="v$.email.$error && 'field-error'">
+			<span>Email</span>
+			<!-- <Input v-model="email" @blur="v$.email.$touch" :error="v$.email.$error" :dirty="v$.email.$dirty" /> -->
+			<Input v-model="email" @blur="v$.email.$touch" />
+			<ShowError :validation="v$.email" :error="v$.email.$error" :errors="v$.email.$errors" />
+		</label>
 
 		<button>Submit</button>
 	</form>
@@ -23,7 +27,8 @@ export default {
 	data() {
 		return {
 			name: '',
-			email: ''
+			email: '',
+			isError: false,
 		}
 	},
 	validations() {
@@ -34,21 +39,53 @@ export default {
 	},
 	methods: {
 		onSubmit() {
+			if (this.v$.$invalid) {
+				this.isError = this.v$.$invalid
+				return alert('invalid')
+			}
+			this.name = ''
+			this.email = ''
+			this.isError = false
+			this.v$.$reset()
 			alert('ok')
 		}
 	}
 }
 </script>
 
-<style>
+<style scoped>
 form {
-	border: solid 2px brown;
+	display: flex;
+	flex-direction: column;
+	border: solid 2px #2a83a5;
 	border-radius: 5px;
 	padding: 15px 20px;
-	background-color: rgb(221, 113, 113);
+	background-color: #a2e7e7;
 }
 
-.field-error {
-	border-bottom: 3px solid red;
+.error {
+	border-color: red;
+	background-color: #e7a2a2;
+}
+
+.field {
+	position: relative;
+	margin-bottom: 5px;
+	padding-right: 20px;
+}
+
+.field span {
+	font-family: 'Courier New', Courier, monospace;
+	font-weight: 500;
+	font-size: 22px;
+}
+
+
+
+button {
+	max-width: 150px;
+	min-width: 100px;
+	align-self: center;
+	margin-top: 20px;
 }
 </style>
