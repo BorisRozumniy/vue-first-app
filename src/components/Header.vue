@@ -1,6 +1,9 @@
 <template>
   <header>
-    <div>Covid-19 Tracker</div>
+    <Container>
+      <div>menu</div>
+      <slot></slot>
+    </Container>
   </header>
 </template>
 
@@ -9,3 +12,10 @@ export default {
   name: 'Header'
 }
 </script>
+
+<style scoped>
+header {
+  background-color: #3e2ed3;
+  color: #fff;
+}
+</style>

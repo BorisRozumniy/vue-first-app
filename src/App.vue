@@ -1,5 +1,5 @@
 <template>
-  <AccountForm />
+  <!-- <AccountForm /> -->
   <!-- <AuthForm /> -->
   <!-- <Todos /> -->
   <!-- <TodosCoockbook /> -->
@@ -10,6 +10,7 @@
   <!-- <Header /> -->
   <!-- <Likes /> -->
   <!-- <Posts /> -->
+  <HomePage />
 </template>
 
 <script>
@@ -20,6 +21,7 @@ import Todos from "./components/Todos.vue";
 import TodosCoockbook from "./components/CoockbookApp.vue";
 import AuthForm from "./components/Coockbook/AuthForm.vue";
 import AccountForm from "./components/AccountForm.vue";
+import HomePage from "./components/HomePage.vue";
 
 export default {
   components: {
@@ -29,7 +31,8 @@ export default {
     Todos,
     TodosCoockbook,
     AuthForm,
-    AccountForm
+    AccountForm,
+    HomePage
   },
 };
 </script>
