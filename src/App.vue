@@ -10,7 +10,7 @@
   <!-- <Header /> -->
   <!-- <Likes /> -->
   <!-- <Posts /> -->
-  <HomePage />
+  <RouterView />
 </template>
 
 <script>
@@ -21,7 +21,6 @@ import Todos from "./components/Todos.vue";
 import TodosCoockbook from "./components/CoockbookApp.vue";
 import AuthForm from "./components/Coockbook/AuthForm.vue";
 import AccountForm from "./components/AccountForm.vue";
-import HomePage from "./components/HomePage.vue";
 
 export default {
   components: {
@@ -32,7 +31,6 @@ export default {
     TodosCoockbook,
     AuthForm,
     AccountForm,
-    HomePage
   },
 };
 </script>
