@@ -9,9 +9,10 @@
 </template>
 
 <script>
-import Footer from './Footer.vue';
+import Footer from '../Footer.vue';
 
 export default {
+	name: 'PageLayout',
 	components: {
 		Footer
 	}

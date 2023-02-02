@@ -21,14 +21,12 @@
 
 <script>
 import AccountForm from './AccountForm.vue';
-import PageLayout from './PageLayout.vue';
 import Header from './Header.vue'
 import AuthForm from './Coockbook/AuthForm.vue';
 
 export default {
 	components: {
 		Header,
-		PageLayout,
 		AccountForm,
 		AuthForm
 	}
