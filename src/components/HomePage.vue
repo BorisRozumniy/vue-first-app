@@ -9,6 +9,7 @@
 			<template v-slot:content>
 				<Container>
 					<AccountForm />
+					<AuthForm class="mt40" />
 				</Container>
 			</template>
 			<template v-slot:footer>
@@ -22,12 +23,14 @@
 import AccountForm from './AccountForm.vue';
 import PageLayout from './PageLayout.vue';
 import Header from './Header.vue'
+import AuthForm from './Coockbook/AuthForm.vue';
 
 export default {
 	components: {
 		Header,
 		PageLayout,
 		AccountForm,
+		AuthForm
 	}
 }
 </script>
@@ -35,6 +38,5 @@ export default {
 <style scoped>
 .content {
 	background-color: aquamarine;
-
 }
 </style>
