@@ -1,34 +1,34 @@
 <template>
 	<div>
-		<h1>Create a New Vue Account</h1>
+		<h2>Create a New Vue Account</h2>
 		<form>
 			<!-- Full name validation -->
 			<div class="form-group" :class="{ 'form-group--error': v$.name.$error }">
-				<label class="form__label">Full Name</label>
-				<input class="form__input" v-model.trim="v$.name.$model" />
+				<label class="form__label" for="name">Full Name</label>
+				<Input class="form__input" v-model.trim="v$.name.$model" id="name" />
 				<span class="required" v-if="v$.name.required">*</span>
-				<span class="message" v-if="v$.name.$error" v-for="{ $message } in v$.name.$errors">{{ $message }}</span>
+				<ShowError :validation="v$.name" :error="v$.name.$error" :errors="v$.name.$errors" />
 			</div>
 			<!-- Email Address-->
 			<div class="form-group" :class="{ 'form-group--error': v$.email.$error }">
-				<label for="email">Email Address</label>
-				<input class="form__input" v-model.trim="v$.email.$model" />
+				<label class="form__label" for="email">Email Address</label>
+				<Input class="form__input" v-model.trim="v$.email.$model" id="email" />
 				<span class="required" v-if="v$.email.required">*</span>
-				<span class="message" v-if="v$.email.$error" v-for="{ $message } in v$.email.$errors">{{ $message }}</span>
+				<ShowError :validation="v$.email" :error="v$.email.$error" :errors="v$.email.$errors" />
 			</div>
 			<!-- Password validation-->
 			<div class="form-group" :class="{ 'form-group--error': v$.password.$error }">
-				<label class="form__label">Password</label>
-				<input class="form__input" v-model.trim="v$.password.$model" />
+				<label class="form__label" for="password">Password</label>
+				<Input class="form__input" v-model.trim="v$.password.$model" id="password" />
 				<span class="required" v-if="v$.password.required">*</span>
-				<span class="message" v-if="v$.password.$error" v-for="{ $message } in v$.password.$errors">{{ $message }}</span>
+				<ShowError :validation="v$.password" :error="v$.password.$error" :errors="v$.password.$errors" />
 			</div>
 			<!-- Age validation-->
 			<div class="form-group" :class="{ 'form-group--error': v$.age.$error }">
-				<label class="form__label">Age</label>
-				<input class="form__input" v-model.trim="v$.age.$model" />
+				<label class="form__label" for="age">Age</label>
+				<Input class="form__input" v-model.trim="v$.age.$model" id="age" />
 				<span class="required" v-if="v$.age.required">*</span>
-				<span class="message" v-if="v$.age.$error && v$.age.between">{{ v$.age.between.$message }}</span>
+				<ShowError :validation="v$.age" :error="v$.age.$error" :errors="v$.age.$errors" />
 			</div>
 		</form>
 	</div>
@@ -112,8 +112,6 @@ form {
 	font-weight: 500;
 	font-size: 22px;
 }
-
-
 
 button {
 	max-width: 150px;
