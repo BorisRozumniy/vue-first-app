@@ -6,10 +6,12 @@ import UI from "./components/UI";
 import { createRouter, createWebHistory } from "vue-router";
 import TodosCoockbook from "./views/TodosCoockbook.vue";
 import HomePage from "./views/HomePage.vue";
+import TimeCalculator from "./views/TimeCalculator.vue";
 
 const routes = [
   { path: "/", component: HomePage },
   { path: "/todos-coockbook", component: TodosCoockbook },
+  { path: "/time-calculator", component: TimeCalculator },
 ];
 
 const router = createRouter({
