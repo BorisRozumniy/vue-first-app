@@ -1,18 +1,21 @@
 <template>
   <div>
     <div>
-      <label>Start Time:</label>
-      <input type="time" v-model="startTime" @input="calculateTime">
+      <label for="startTime">Start Time:</label>
+      <input type="time" id="startTime" v-model="startTime">
     </div>
+
     <div>
-      <label>End Time:</label>
-      <input type="time" v-model="endTime" @input="calculateTime">
+      <label for="endTime">End Time:</label>
+      <input type="time" id="endTime" v-model="endTime">
     </div>
-    <!-- <div>
-      <label>Pause Time:</label>
-      <input type="time" v-model="pauseTime" @input="calculateTime">
-    </div> -->
-    <p>Time Difference: {{ timeDifference }}</p>
+
+    <div>
+      <label for="breakTime">Break Time:</label>
+      <input type="time" id="breakTime" v-model="breakTime">
+    </div>
+
+    <p>Working Time: {{ workingTime }}</p>
   </div>
 </template>
 
@@ -22,21 +25,21 @@ export default {
     return {
       startTime: '',
       endTime: '',
-      // pauseTime: '',
-      timeDifference: ''
-    }
+      breakTime: ''
+    };
   },
-  methods: {
-    calculateTime() {
-      let start = new Date("01/01/2000 " + this.startTime);
-      let end = new Date("01/01/2000 " + this.endTime);
-      // let pause = new Date("01/01/2000 " + this.pauseTime);
-      let difference = end - start;
-      // let difference = end - start - pause;
-      let hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      let minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-      this.timeDifference = hours + " hours " + minutes + " minutes";
+  computed: {
+    workingTime() {
+      const start = new Date('1970-01-01T' + this.startTime + 'Z');
+      const end = new Date('1970-01-01T' + this.endTime + 'Z');
+      const breakTime = new Date('1970-01-01T' + this.breakTime + 'Z');
+
+      const diff = end - start - breakTime.getTime();
+      const hours = Math.floor(diff / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+
+      return `${hours} hours ${minutes} minutes`;
     }
   }
-}
+};
 </script>
