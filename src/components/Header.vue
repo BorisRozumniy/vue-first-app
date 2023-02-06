@@ -1,15 +1,18 @@
 <template>
   <header>
     <Container>
-      <div>menu</div>
+      <NavBar/>
       <slot></slot>
     </Container>
   </header>
 </template>
 
 <script>
+import NavBar from './NavBar.vue';
+
 export default {
-  name: 'Header'
+    name: "Header",
+    components: { NavBar }
 }
 </script>
 
