@@ -53,8 +53,32 @@ body {
 }
 
 h1 {
-  font-size: 3.2em;
+  font-size: 1.8em;
   line-height: 1.1;
+}
+
+@media screen and (min-width: 380px) {
+	h1 {
+		font-size: 2em;
+	}
+}
+
+@media screen and (min-width: 580px) {
+	h1 {
+		font-size: 2.4em;
+	}
+}
+
+@media screen and (min-width: 920px) {
+	h1 {
+		font-size: 2.8em;
+	}
+}
+
+@media screen and (min-width: 1200px) {
+  h1 {
+    font-size: 3.2em;
+	}
 }
 
 button {

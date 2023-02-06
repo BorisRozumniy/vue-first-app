@@ -17,16 +17,27 @@ export default {}
 ul {
 	list-style: none;
 	display: flex;
+	flex-direction: column;
 }
+
+@media screen and (min-width: 580px) {
+	ul {
+		flex-direction: row;
+	}
+}
+
 li {
 	margin-right: 24px;
 	text-transform: capitalize;
 }
+
 a {
 	color: #fff;
 	transition: 5s all;
 }
-a:hover, a:focus {
+
+a:hover,
+a:focus {
 	transition: 5s all;
 	border-bottom: 2px solid #fff;
 	outline: none;
