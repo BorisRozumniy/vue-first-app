@@ -1,5 +1,7 @@
 <template>
-	<slot name="header"></slot>
+	<Header>
+		<slot name="header"></slot>
+	</Header>
 	<div class="main">
 		<slot name="content"></slot>
 	</div>
@@ -10,12 +12,14 @@
 
 <script>
 import Footer from '../Footer.vue';
+import Header from '../Header.vue';
 
 export default {
 	name: 'PageLayout',
 	components: {
-		Footer
-	}
+    Footer,
+    Header
+}
 }
 </script>
 

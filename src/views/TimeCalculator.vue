@@ -2,9 +2,7 @@
 	<div class="wrapper">
 		<PageLayout>
 			<template v-slot:header>
-				<Header>
-					<h1>HomePage</h1>
-				</Header>
+				<h1>Work Time Calculator</h1>
 			</template>
 			<template v-slot:content>
 				<Container>
@@ -20,11 +18,9 @@
 
 <script>
 import TimeCalculator from '../components/TimeCalculator.vue';
-import Header from '../components/Header.vue'
 
 export default {
 	components: {
-		Header,
 		TimeCalculator,
 	}
 }

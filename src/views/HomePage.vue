@@ -2,9 +2,7 @@
 	<div class="wrapper">
 		<PageLayout>
 			<template v-slot:header>
-				<Header>
-					<h1>HomePage</h1>
-				</Header>
+				<h1>HomePage</h1>
 			</template>
 			<template v-slot:content>
 				<Container>
@@ -21,12 +19,10 @@
 
 <script>
 import AccountForm from '../components/AccountForm.vue';
-import Header from '../components/Header.vue'
 import AuthForm from '../components/Coockbook/AuthForm.vue';
 
 export default {
 	components: {
-		Header,
 		AccountForm,
 		AuthForm
 	}
