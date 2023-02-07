@@ -1,19 +1,17 @@
 <template>
-	<div class="wrapper">
-		<PageLayout>
-			<template v-slot:header>
-				<h1>Work Time Calculator</h1>
-			</template>
-			<template v-slot:content>
-				<Container>
-					<TimeCalculator class="mt40" />
-				</Container>
-			</template>
-			<template v-slot:footer>
-				footer content
-			</template>
-		</PageLayout>
-	</div>
+	<PageLayout>
+		<template v-slot:header>
+			<h1>Work Time Calculator</h1>
+		</template>
+		<template v-slot:content>
+			<Container>
+				<TimeCalculator />
+			</Container>
+		</template>
+		<template v-slot:footer>
+			footer content
+		</template>
+	</PageLayout>
 </template>
 
 <script>
