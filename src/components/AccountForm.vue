@@ -5,28 +5,28 @@
 			<!-- Full name validation -->
 			<div class="form-group" :class="{ 'form-group--error': v$.name.$error }">
 				<label class="form__label" for="name">Full Name</label>
-				<Input class="form__input" v-model.trim="v$.name.$model" id="name" />
+				<Input v-model.trim="v$.name.$model" :error="v$.name.$error" />
 				<span class="required" v-if="v$.name.required">*</span>
 				<ShowError :validation="v$.name" :error="v$.name.$error" :errors="v$.name.$errors" />
 			</div>
 			<!-- Email Address-->
 			<div class="form-group" :class="{ 'form-group--error': v$.email.$error }">
 				<label class="form__label" for="email">Email Address</label>
-				<Input class="form__input" v-model.trim="v$.email.$model" id="email" />
+				<Input v-model.trim="v$.email.$model" />
 				<span class="required" v-if="v$.email.required">*</span>
 				<ShowError :validation="v$.email" :error="v$.email.$error" :errors="v$.email.$errors" />
 			</div>
 			<!-- Password validation-->
 			<div class="form-group" :class="{ 'form-group--error': v$.password.$error }">
 				<label class="form__label" for="password">Password</label>
-				<Input class="form__input" v-model.trim="v$.password.$model" id="password" />
+				<Input v-model.trim="v$.password.$model" />
 				<span class="required" v-if="v$.password.required">*</span>
 				<ShowError :validation="v$.password" :error="v$.password.$error" :errors="v$.password.$errors" />
 			</div>
 			<!-- Age validation-->
 			<div class="form-group" :class="{ 'form-group--error': v$.age.$error }">
 				<label class="form__label" for="age">Age</label>
-				<Input class="form__input" v-model.trim="v$.age.$model" id="age" />
+				<Input v-model.trim="v$.age.$model" />
 				<span class="required" v-if="v$.age.required">*</span>
 				<ShowError :validation="v$.age" :error="v$.age.$error" :errors="v$.age.$errors" />
 			</div>
