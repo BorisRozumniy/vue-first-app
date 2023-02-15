@@ -16,8 +16,7 @@
 			<ShowError :validation="v$.email" :error="v$.email.$error" :errors="v$.email.$errors" />
 		</label>
 
-		<button
-			:disabled="v$.$invalid"
+		<button :disabled="v$.$invalid"
 			:class="v$.$error && 'input-error' || v$.$dirty && !v$.$invalid && 'input-success'">Submit</button>
 	</form>
 </template>
@@ -41,6 +40,9 @@ export default {
 			email: { required, email }
 		}
 	},
+	created() {
+		this.getUserData()
+	},
 	methods: {
 		onSubmit() {
 			if (this.v$.$invalid) {
@@ -53,6 +55,12 @@ export default {
 			this.isError = false
 			this.v$.$reset()
 			alert('ok')
+		},
+		getUserData() {
+			// this is a fake request
+			fetch('exemple-api.com/user-1')
+				.then(res => this.email = 'default@mail.com')
+				.catch(res => this.email = 'default@mail.com')
 		}
 	}
 }
@@ -108,7 +116,7 @@ form {
 }
 
 .input-success {
-  border-color: green;
+	border-color: green;
 	outline-color: green;
 }
 
