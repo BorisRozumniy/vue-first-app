@@ -1,6 +1,11 @@
 <template>
 	<input v-model="todo.title" type="text" placeholder="title">
 	<button @click="createTodo">add</button>
+
+	<div v-for="todo in todos" :key="todo.id">
+		<b>{{ todo.title }}</b>
+		<span v-if="todo.isDone">+</span>
+	</div>
 </template>
 
 <script>
@@ -13,8 +18,8 @@ export default {
 				isDone: false
 			},
 			todos: [
-				{ id: 1, title: "item 1", complited: false },
-				{ id: 2, title: "item 2", complited: true },
+				{ id: 1, title: "item 1", isDone: false },
+				{ id: 2, title: "item 2", isDone: true },
 			],
 		}
 	},
