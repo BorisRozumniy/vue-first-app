@@ -1,5 +1,5 @@
 <template>
-	<div v-if="error" v-for="er in errors" class="error-wrapper">
+	<div v-if="validation.$error" v-for="er in validation.$errors" class="error-wrapper">
 		{{ er.$message }}
 	</div>
 </template>
@@ -8,14 +8,6 @@
 export default {
 	name: "ShowError",
 	props: {
-		error: {
-			type: Boolean,
-			default: false
-		},
-		errors: {
-			type: Object,
-			require: true,
-		},
 		validation: {
 			type: Object,
 			require: true

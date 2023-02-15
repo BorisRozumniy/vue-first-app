@@ -5,7 +5,7 @@
 			<input v-model="v$.name.$model" @blur="v$.name.$touch" class="input"
 				:class="v$.name.$error && 'input-error' || v$.name.$dirty && !v$.name.$invalid && 'input-success'" />
 			<!-- <Input v-model="name" @blur="v$.name.$touch" :error="v$.name.$error" :dirty="v$.name.$dirty" /> -->
-			<ShowError :validation="v$.name" :error="v$.name.$error" :errors="v$.name.$errors" />
+			<ShowError :validation="v$.name" />
 		</label>
 
 		<label class="field" :class="v$.email.$error && 'field-error'">
@@ -13,7 +13,7 @@
 			<!-- <Input v-model="email" @blur="v$.email.$touch" :error="v$.email.$error" :dirty="v$.email.$dirty" /> -->
 			<input v-model="v$.email.$model" @blur="v$.email.$touch" class="input"
 				:class="v$.email.$error && 'input-error' || v$.email.$dirty && !v$.email.$invalid && 'input-success'" />
-			<ShowError :validation="v$.email" :error="v$.email.$error" :errors="v$.email.$errors" />
+			<ShowError :validation="v$.email" />
 		</label>
 
 		<button :disabled="v$.$invalid"
