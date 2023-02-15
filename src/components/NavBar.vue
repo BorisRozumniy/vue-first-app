@@ -3,6 +3,7 @@
 		<ul>
 			<li><router-link to="/">Home</router-link></li>
 			<li><router-link to="/todos-coockbook">Todos Coockbook</router-link></li>
+			<li><router-link to="/my-second-todo-list">My second todo list</router-link></li>
 			<li><router-link to="/time-calculator">time calculator</router-link></li>
 			<li><router-link to="/layout">Test Layout</router-link></li>
 		</ul>
