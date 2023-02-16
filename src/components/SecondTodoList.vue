@@ -1,15 +1,14 @@
 <template>
 	<TodoForm @create="addTodo" />
-	<div v-for="todo in todos" :key="todo.id">
-		<b>{{ todo.title }}</b>
-		<span v-if="todo.isDone">+</span>
-	</div>
+	<TodoList :todos="todos" />
 </template>
 
 <script>
 import TodoForm from './secondTodo/TodoForm.vue';
+import TodoList from './secondTodo/TodoList.vue';
 
 export default {
+	components: { TodoForm, TodoList },
 	data() {
 		return {
 			todos: [
@@ -23,6 +22,5 @@ export default {
 			this.todos.push(todo);
 		}
 	},
-	components: { TodoForm }
 }
 </script>
