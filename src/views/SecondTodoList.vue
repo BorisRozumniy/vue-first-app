@@ -1,7 +1,7 @@
 <template>
 	<PageLayout>
 		<template v-slot:header>
-			<h1>SecondTodoList</h1>
+			<h1>Second Todo List</h1>
 		</template>
 		<template v-slot:content>
 			<Container>
