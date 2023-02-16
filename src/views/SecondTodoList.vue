@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import SecondTodoList from '../components/SecondTodoList.vue';
+import SecondTodoList from '../components/secondTodo/SecondTodoApp.vue';
 
 export default {
 	components: {

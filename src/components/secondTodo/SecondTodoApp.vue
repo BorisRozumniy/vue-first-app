@@ -4,8 +4,8 @@
 </template>
 
 <script>
-import TodoForm from './secondTodo/TodoForm.vue';
-import TodoList from './secondTodo/TodoList.vue';
+import TodoForm from './TodoForm.vue';
+import TodoList from './TodoList.vue';
 
 export default {
 	components: { TodoForm, TodoList },
