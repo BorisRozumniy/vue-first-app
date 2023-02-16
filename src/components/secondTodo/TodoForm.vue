@@ -1,5 +1,5 @@
 <template>
-	<input v-model="todo.title" type="text" placeholder="title">
+	<input v-model="todo.title" @keyup.enter="createTodo" type="text" placeholder="title">
 	<button @click="createTodo">add</button>
 </template>
 
