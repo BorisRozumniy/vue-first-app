@@ -1,13 +1,14 @@
 <template>
-	<div v-for="todo in todos" :key="todo.id">
-		<b>{{ todo.title }}</b>
-		<span v-if="todo.isDone">+</span>
-	</div>
+	<TodoItem v-for="todo in todos" :key="todo.id" :todo="todo" />
 </template>
 
 <script>
+import TodoItem from './TodoItem.vue'
 
 export default {
+	components: {
+    TodoItem
+},
 	props: {
 		todos: { type: Array, requered: true }
 	},
