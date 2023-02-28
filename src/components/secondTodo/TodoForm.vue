@@ -57,7 +57,7 @@ export default {
 .wrapper {
 	display: flex;
 	flex-direction: row;
-	justify-content: space-between;
+	justify-content: center;
 	flex-wrap: wrap;
 	background: #c0d0e0;
 	padding: 20px;
@@ -69,6 +69,7 @@ input {
 	font-size: 24px;
 	border-radius: 6px;
 	margin-bottom: 14px;
+	max-width: 100%;
 }
 
 button {
@@ -86,6 +87,7 @@ button {
 	.wrapper {
 		max-width: 500px;
 		flex-direction: row;
+		justify-content: space-between;
 	}
 
 	input {
