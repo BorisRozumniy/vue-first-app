@@ -1,16 +1,18 @@
 <template>
-	<div class="wrapper">
-		<input
-			v-model="v$.todo.title.$model"
-			@keyup.enter="createTodo"
-			type="text"
-			placeholder="title"
-			:class="v$.todo.title.$error && 'input-error' || v$.todo.title.$dirty && !v$.todo.title.$invalid && 'input-success'"
-		>
-		<button @click="createTodo">add</button>
-
-		<div class="errors" v-if="triedToAdd && v$.$invalid">
-			<ShowError :validation="v$.todo.title" classWrapper="cw" classItem="ci"/>
+	<div class="bg-white">
+		<div class="form-wrapper">
+			<input
+				v-model="v$.todo.title.$model"
+				@keyup.enter="createTodo"
+				type="text"
+				placeholder="title"
+				:class="v$.todo.title.$error && 'input-error' || v$.todo.title.$dirty && !v$.todo.title.$invalid && 'input-success'"
+			>
+			<button @click="createTodo">add</button>
+			
+			<div class="errors" v-if="triedToAdd && v$.$invalid">
+				<ShowError :validation="v$.todo.title" classWrapper="cw" classItem="ci"/>
+			</div>
 		</div>
 	</div>
 </template>
@@ -54,11 +56,18 @@ export default {
 </script>
 
 <style scoped>
-.wrapper {
+.bg-white {
+	position: sticky;
+	top: 0;
+	background: white;
+	padding: 16px;
+}
+.form-wrapper {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
 	flex-wrap: wrap;
+	margin: auto;
 	background: #c0d0e0;
 	padding: 20px;
 	border-radius: 6px;
@@ -84,7 +93,7 @@ button {
 }
 
 @media screen and (min-width: 580px) {
-	.wrapper {
+	.form-wrapper {
 		max-width: 500px;
 		flex-direction: row;
 		justify-content: space-between;
