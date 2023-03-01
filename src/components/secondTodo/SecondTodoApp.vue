@@ -1,6 +1,10 @@
 <template>
   <TodoForm @create="addTodo" />
-  <TodoList :todos="todos" />
+  <TodoList
+    :todos="todos"
+    @remove="removeTodo"
+    @edit="editTodo"
+  />
 </template>
 
 <script>
@@ -33,6 +37,14 @@ export default {
     addTodo(todo) {
       this.todos.push(todo);
     },
+    editTodo(todoId) {
+      const editedTodo = this.todos.find(({ id }) => id === todoId)
+      console.log('edit todo', todoId, editedTodo);
+    },
+    removeTodo(todoId) {
+      console.log('removed todo', todoId, );
+      this.todos = this.todos.filter(({ id }) => id !== todoId)
+    }
   },
 };
 </script>

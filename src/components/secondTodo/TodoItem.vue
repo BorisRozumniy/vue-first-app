@@ -5,8 +5,14 @@
 			<span v-if="todo.isDone">+</span>
 		</div>
 		<div class="buttons">
-			<button class="edit">edit</button>
-			<button class="remove">remove</button>
+			<button
+				class="edit"
+				@click="onEdit(todo.id)"
+			>edit</button>
+			<button
+				class="remove"
+				@click="onRemove(todo.id)"
+			>remove</button>
 		</div>
 	</div>
 </template>
@@ -17,6 +23,16 @@ export default {
 	props: {
 		todo: { type: Object, requered: true }
 	},
+	methods: {
+		onEdit(todoId) {
+			console.log('onEdit(todoId)', todoId);
+			this.$emit("edit", todoId)
+		},
+		onRemove(todoId) {
+			console.log('onEdit(todoId)', todoId);
+			this.$emit("remove", todoId)
+		}
+	}
 }
 </script>
 <style scoped>
