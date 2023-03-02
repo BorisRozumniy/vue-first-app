@@ -1,5 +1,5 @@
 <template>
-	<div class="todo-item">
+	<div class="todo-item" :id="'todo-item' + todo.id">
 		<div class="content">
 			<b>{{ todo.title }}</b>
 			<span v-if="todo.isDone">+</span>

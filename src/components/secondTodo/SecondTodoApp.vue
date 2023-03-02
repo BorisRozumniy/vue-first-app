@@ -15,6 +15,7 @@ export default {
   components: { TodoForm, TodoList },
   data() {
     return {
+      scrollToTodo: null,
       todos: [
         { id: 1, title: "item 1", isDone: false },
         { id: 2, title: "item 2", isDone: true },
@@ -36,6 +37,7 @@ export default {
   methods: {
     addTodo(todo) {
       this.todos.push(todo);
+      this.scrollToTodo = todo.id
     },
     editTodo(todoId) {
       const editedTodo = this.todos.find(({ id }) => id === todoId)
@@ -44,6 +46,15 @@ export default {
     removeTodo(todoId) {
       console.log('removed todo', todoId, );
       this.todos = this.todos.filter(({ id }) => id !== todoId)
+    },
+  },
+  watch: {
+    scrollToTodo: {
+      handler(scrollToTodo){
+        const el = document.querySelector(`#todo-item${scrollToTodo}`)
+        el && el.scrollIntoView({ behavior: 'smooth' })
+      },
+      flush: 'post',
     }
   },
 };
