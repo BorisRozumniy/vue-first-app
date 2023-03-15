@@ -1,11 +1,11 @@
 <template>
 	<PageLayout>
 		<template v-slot:header>
-			<h1>Todos Coockbook</h1>
+			<h1>Second Todo List</h1>
 		</template>
 		<template v-slot:content>
 			<Container>
-				<CoockbookApp />
+				<SecondTodoList />
 			</Container>
 		</template>
 		<template v-slot:footer>
@@ -15,11 +15,11 @@
 </template>
 
 <script>
-import CoockbookApp from '../components/CoockbookApp.vue';
+import SecondTodoList from '../components/secondTodo/SecondTodoApp.vue';
 
 export default {
 	components: {
-		CoockbookApp,
+		SecondTodoList
 	}
 }
 </script>

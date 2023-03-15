@@ -1,12 +1,11 @@
 <template>
 	<PageLayout>
 		<template v-slot:header>
-			<h1>HomePage</h1>
+			<h1>Work Time Calculator</h1>
 		</template>
 		<template v-slot:content>
 			<Container>
-				<AccountForm />
-				<AuthForm class="mt40" />
+				<TimeCalculator />
 			</Container>
 		</template>
 		<template v-slot:footer>
@@ -16,13 +15,11 @@
 </template>
 
 <script>
-import AccountForm from '../components/AccountForm.vue';
-import AuthForm from '../components/Coockbook/AuthForm.vue';
+import TimeCalculator from '../components/TimeCalculator.vue';
 
 export default {
 	components: {
-		AccountForm,
-		AuthForm
+		TimeCalculator,
 	}
 }
 </script>

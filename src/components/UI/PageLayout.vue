@@ -1,26 +1,39 @@
 <template>
-	<slot name="header"></slot>
-	<div class="main">
-		<slot name="content"></slot>
+	<div class="wrapper">
+		<Header>
+			<slot name="header"></slot>
+		</Header>
+		<main>
+			<slot name="content"></slot>
+		</main>
+		<Footer>
+			<slot name="footer"></slot>
+		</Footer>
 	</div>
-	<Footer>
-		<slot name="footer"></slot>
-	</Footer>
 </template>
 
 <script>
 import Footer from '../Footer.vue';
+import Header from '../Header.vue';
 
 export default {
 	name: 'PageLayout',
 	components: {
-		Footer
+		Footer,
+		Header
 	}
 }
 </script>
 
 <style scoped>
-.main {
+.wrapper {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+main {
 	margin: 40px 0 60px;
 }
 </style>

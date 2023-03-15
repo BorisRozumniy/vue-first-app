@@ -1,20 +1,23 @@
 <template>
-	<form @submit.prevent="onSubmit" :class="isError && 'error'">
+	<form @submit.prevent="onSubmit" :class="isError && 'form-error'">
 		<label class="field" :class="v$.name.$error && 'field-error'">
 			<span>Name</span>
-			<Input v-model="name" @blur="v$.name.$touch" />
+			<input v-model="v$.name.$model" @blur="v$.name.$touch" class="input"
+				:class="v$.name.$error && 'input-error' || v$.name.$dirty && !v$.name.$invalid && 'input-success'" />
 			<!-- <Input v-model="name" @blur="v$.name.$touch" :error="v$.name.$error" :dirty="v$.name.$dirty" /> -->
-			<ShowError :validation="v$.name" :error="v$.name.$error" :errors="v$.name.$errors" />
+			<ShowError :validation="v$.name" />
 		</label>
 
 		<label class="field" :class="v$.email.$error && 'field-error'">
 			<span>Email</span>
 			<!-- <Input v-model="email" @blur="v$.email.$touch" :error="v$.email.$error" :dirty="v$.email.$dirty" /> -->
-			<Input v-model="email" @blur="v$.email.$touch" />
-			<ShowError :validation="v$.email" :error="v$.email.$error" :errors="v$.email.$errors" />
+			<input v-model="v$.email.$model" @blur="v$.email.$touch" class="input"
+				:class="v$.email.$error && 'input-error' || v$.email.$dirty && !v$.email.$invalid && 'input-success'" />
+			<ShowError :validation="v$.email" />
 		</label>
 
-		<button>Submit</button>
+		<button :disabled="v$.$invalid"
+			:class="v$.$error && 'input-error' || v$.$dirty && !v$.$invalid && 'input-success'">Submit</button>
 	</form>
 </template>
 
@@ -37,9 +40,13 @@ export default {
 			email: { required, email }
 		}
 	},
+	created() {
+		this.getUserData()
+	},
 	methods: {
 		onSubmit() {
 			if (this.v$.$invalid) {
+				this.v$.$validate();
 				this.isError = this.v$.$invalid
 				return alert('invalid')
 			}
@@ -48,6 +55,12 @@ export default {
 			this.isError = false
 			this.v$.$reset()
 			alert('ok')
+		},
+		getUserData() {
+			// this is a fake request
+			fetch('exemple-api.com/user-1')
+				.then(res => this.email = 'default@mail.com')
+				.catch(res => this.email = 'default@mail.com')
 		}
 	}
 }
@@ -61,16 +74,21 @@ form {
 	border-radius: 5px;
 	padding: 15px 20px;
 	background-color: #a2e7e7;
+	max-width: 500px;
+	margin-right: auto;
+	margin-left: auto;
 }
 
-.error {
+.form-error {
 	border-color: red;
 	background-color: #e7a2a2;
 }
 
 .field {
 	position: relative;
-	margin-bottom: 5px;
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 25px;
 	padding-right: 20px;
 }
 
@@ -80,7 +98,27 @@ form {
 	font-size: 22px;
 }
 
+.field-error span {
+	color: red;
+}
 
+.input {
+	margin: 8px 0;
+	padding: 25px 10px;
+	border-radius: 8px;
+	outline-color: blue;
+	font-size: 25px;
+}
+
+.input-error {
+	border-color: red;
+	outline-color: red;
+}
+
+.input-success {
+	border-color: green;
+	outline-color: green;
+}
 
 button {
 	max-width: 150px;
